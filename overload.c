@@ -35,8 +35,14 @@ void start_attack(const char *target_ip);
 void load_dns_servers(const char *filename) {
     FILE *file = fopen(filename, "r");
     if (!file) {
-        fprintf(stderr, "Could not open %s\n", filename);
-        exit(1);
+        fprintf(stderr, "Could not open %s in current directory, trying /usr/share/dos-tools/\n", filename);
+        char alternative_path[256];
+        snprintf(alternative_path, sizeof(alternative_path), "/usr/share/dos-tools/%s", filename);
+        file = fopen(alternative_path, "r");
+        if (!file) {
+            fprintf(stderr, "Could not open %s in /usr/share/dos-tools/ either\n", filename);
+            exit(1);
+        }
     }
 
     char line[256];
@@ -60,10 +66,15 @@ void load_dns_servers(const char *filename) {
 void load_user_agents(const char *filename) {
     FILE *file = fopen(filename, "r");
     if (!file) {
-        fprintf(stderr, "Could not open %s\n", filename);
-        exit(1);
+        fprintf(stderr, "Could not open %s in current directory, trying /usr/share/dos-tools/\n", filename);
+        char alternative_path[256];
+        snprintf(alternative_path, sizeof(alternative_path), "/usr/share/dos-tools/%s", filename);
+        file = fopen(alternative_path, "r");
+        if (!file) {
+            fprintf(stderr, "Could not open %s in /usr/share/dos-tools/ either\n", filename);
+            exit(1);
+        }
     }
-
     char line[1024];
     while (fgets(line, sizeof(line), file) && user_agent_count < MAX_USER_AGENTS) {
         size_t len = strlen(line);

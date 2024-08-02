@@ -114,13 +114,13 @@ This command will start a UDP flood attack on the specified target.
 Usage:
 
 ```sh
-overload <attack_type> <target_ip>
+overload <target_ip>
 ```
 
 Example:
 
 ```sh
-overload http_flood example.com
+overload example.com
 ```
 
 This command will start the specified type of attack on the target.
