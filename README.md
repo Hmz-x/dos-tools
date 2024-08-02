@@ -47,7 +47,7 @@ Before compiling, ensure that you have the following installed on your system:
 
 To compile the tools, run the following command in the directory where the files are located:
 
-```sh
+```
 make
 ```
 
@@ -120,7 +120,7 @@ overload <target_ip>
 Example:
 
 ```sh
-overload example.com
+overload 123.123.123.123
 ```
 
 This command will start the specified type of attack on the target.
