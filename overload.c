@@ -9,7 +9,7 @@
 
 #define BUFFER_SIZE 8192
 #define MAX_DNS_SERVERS 1000
-#define MAX_USER_AGENTS 1000
+#define MAX_USER_AGENTS 1753
 
 // Global variables
 char *dns_servers[MAX_DNS_SERVERS];

@@ -1,0 +1,11 @@
+overload.c:
+Port 53: DNS Amplification Attack (UDP)
+Port 80: HTTP Flood and Slowloris Attacks (TCP)
+CHANGE: Port 12345: UDP Flood Attack (UDP) (MAKE THIS A REAL PORT)
+CHANGE Random port: TCP SYN Flood Attack (REAL PORTS!)
+
+DNS Amplification attack currently sends an A query for
+'example.com' need to change this.
+
+xi-tcp:
+
